@@ -1,0 +1,96 @@
+:root {
+  accent-color: #9147ff;
+  --accent-color: #9147ff;
+  --main-bg: #0e0e10;
+  --main-bg-darker: #070708;
+  --main-text-color: #efeff1;
+  --secondary-bg: #18181b;
+  --secondary-color: #8e9399;
+  --default-white: #fff;
+  --default-transparent: transparent;
+  --selection-bg: #772ce8;
+  --selection-color: #d6d6d4;
+}
+::selection {
+  color: var(--selection-color);
+  background: var(--selection-bg);
+  text-shadow: none;
+}
+* {
+  outline: none;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  background: var(--main-bg);
+  color: var(--main-text-color);
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: var(--default-transparent);
+  -webkit-app-region: no-drag;
+}
+.settings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px;
+}
+.log {
+  background: #000;
+  width: 100%;
+  padding: 8px 4px;
+}
+.log div {
+  display: flex;
+  justify-content: space-between;
+  background: var(--secondary-bg);
+  padding: 4px 8px;
+  margin-top: 4px;
+  border-radius: 4px;
+  align-items: baseline;
+  word-break: break-word;
+}
+.log div span {
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.sendForm {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  background: var(--main-bg-darker);
+  padding: 6px 8px;
+}
+input {
+  flex: auto;
+  background: var(--main-bg);
+  color: var(--default-white);
+  padding: 10px 8px;
+  margin-right: 8px;
+  border: 2px solid var(--secondary-bg);
+  border-radius: 6px;
+}
+input.err {
+  border: 2px var(--accent-color) solid;
+}
+button {
+  background-color: var(--accent-color);
+  color: var(--default-white);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 0;
+  cursor: pointer;
+}
+button:hover {
+  background-color: var(--selection-bg);
+}
