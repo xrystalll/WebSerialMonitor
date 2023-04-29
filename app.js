@@ -90,7 +90,7 @@ const connectSerial = async () => {
         addMessage(value);
       }
       if (done) {
-        console.log("[DONE", done);
+        console.log("DONE", done);
         reader.releaseLock();
         break;
       }
@@ -113,32 +113,6 @@ const writeText = async (text) => {
 
   sendInput.value = "";
   writer.releaseLock();
-};
-
-const sendData = () => {
-  let api = {
-    Watch: {
-      date: `#868686 ${cal("Week")}# ${cal("Date")} ${cal("Month")}`,
-      hours: cal("Hours").toString(),
-      minutes: cal("Minutes").toString(),
-    },
-    CPU: {
-      temperature: "0",
-      clock_and_load: "0MHz / 0%",
-      load: 0,
-    },
-    GPU: {
-      temperature: "0",
-      clock_and_load: "0MHz / 0%",
-      load: 0,
-    },
-    RAM: {
-      load: 0,
-      loadStr: "0",
-      storage: "0 / 0Gb",
-    },
-  };
-  writeText(JSON.stringify(api));
 };
 
 serialRequestBtn.addEventListener("click", () => {
@@ -174,13 +148,8 @@ const loop = setInterval(() => {
   if (port) {
     if (sync) {
       addMessage("Wait connection...");
-      sendData();
       sync = false;
       statusCon.textContent = "Connected";
     }
-
-    if (new Date().getSeconds() !== 0) return;
-
-    sendData();
   }
 }, 1000);
